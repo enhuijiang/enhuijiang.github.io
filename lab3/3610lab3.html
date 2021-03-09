@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>3610 Lab3 team member: enhui Jiang, Peng Dong</h1>
+
+<form >
+  <label for="title">Name your Note</label>
+  <input type="text" id="titlearea" name="title" size="40" oninput="myFunctionTitle()"><br><br>
+
+  <label for="textbox">Tell us something about you:</label>
+  <textarea id="textbox" name="textbox" rows="10" cols="80" oninput="myFunction()" >
+  </textarea>
+  <br><br>
+ 
+  <button type="button" onclick="myFunction2()">Clear!</button>
+
+</form>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("textbox").value;
+    document.getElementById("textbox").innerHTML = x;
+
+    localStorage.setItem("last note", x);
+    
+  }
+  document.getElementById("textbox").innerHTML = localStorage.getItem("last note");
+
+
+  function myFunctionTitle() {
+  var y= document.getElementById("titlearea").value;
+    document.getElementById("titlearea").innerHTML = y;
+
+    localStorage.setItem("title", y);
+  }
+  
+  document.getElementById("titlearea").value = localStorage.getItem("title");
+
+  function myFunction2(){
+    localStorage.removeItem("last note");
+    localStorage.removeItem("title");
+    document.getElementById("textbox").value =" ";
+    document.getElementById("titlearea").value =" ";
+  }
+  
+
+
+</script>
+
+
+</body>
+</html>
+
