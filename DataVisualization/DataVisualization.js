@@ -14,7 +14,7 @@ new Chart(document.getElementById("doughnut-chart"), {
     options: {
       title: {
         display: true,
-        text: 'Unit sales of the Apple iPhone worldwide from 2007 to 2018 (in millions)'
+        text: 'Student Name:Enhui Jiang, Unit sales of the Apple iPhone worldwide from 2007 to 2018 (in millions)'
       }
     }
 });
@@ -35,7 +35,7 @@ new Chart(document.getElementById("bar-chart-horizontal"), {
       legend: { display: false },
       title: {
         display: true,
-        text: 'Unit sales of the Apple iPhone worldwide from 2007 to 2018 (in millions)'
+        text: 'Student Name:Enhui Jiang, Unit sales of the Apple iPhone worldwide from 2007 to 2018 (in millions)'
       }
     }
 });
