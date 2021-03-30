@@ -16,17 +16,47 @@ var game = new Phaser.Game(config);
 function preload ()
 {
     this.load.image('background','assets/images.png');
+    this.load.image('eye1','assets/eye1.jpg');
+    this.load.image('eye2','assets/eye2.jpg');
+    this.load.image('eye3','assets/eye3.jpg');
+    this.load.image('mouse3','assets/mouse3.png');
+    this.load.image('mouth2','assets/mouth2.jpg');
+    this.load.image('mouth1','assets/mouth1.jpg');
+    this.load.image('nose','assets/nose.jpeg');
+    
 }
 
 function create ()
 {
     var background = this.add.sprite(200, 200, 'background');
+    var eye1 = this.add.sprite(200, 200, 'eye1');
+    var eye2 = this.add.sprite(200, 200, 'eye2');
+    var eye3 = this.add.sprite(200, 200, 'eye3');
+    var mouse3 = this.add.sprite(200, 200, 'mouse3');
+    var mouth2 = this.add.sprite(200, 200, 'mouth2');
+    var mouth1 = this.add.sprite(200, 200, 'mouth1');
+    var nose = this.add.sprite(200, 200, 'nose');
   
-   sprite.setScale(5);
+   background.setScale(5);
 
     background.setInteractive();
+    eye1.setInteractive();
+    eye2.setInteractive();
+    eye3.setInteractive();
+    mouse3.setInteractive();
+    mouth2.setInteractive();
+    mouth1.setInteractive();
+    nose.setInteractive();
+    
 
     this.input.setDraggable(background);
+    this.input.setDraggable(eye1);
+    this.input.setDraggable(eye2);
+    this.input.setDraggable(eye3);
+    this.input.setDraggable(mouse3);
+    this.input.setDraggable(mouth2);
+    this.input.setDraggable(mouth1);
+    this.input.setDraggable(nose);
 
     this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
 
