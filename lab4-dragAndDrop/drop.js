@@ -28,7 +28,7 @@ function preload ()
 
 function create ()
 {
-    var background = this.add.sprite(500, 400, 'background');
+    var background = this.add.sprite(500, 370, 'background');
     var eye2 = this.add.sprite(1000, 100, 'eye2');
     var eye3 = this.add.sprite(1000, 250, 'eye3');
     var mouse3 = this.add.sprite(1000, 350, 'mouse3');
