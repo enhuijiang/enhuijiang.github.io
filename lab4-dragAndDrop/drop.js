@@ -28,17 +28,15 @@ function preload ()
 
 function create ()
 {
-    var background = this.add.sprite(300, 500, 'background');
-    var eye1 = this.add.sprite(1000, 100, 'eye1');
-    var eye2 = this.add.sprite(1000, 250, 'eye2');
-    var eye3 = this.add.sprite(1000, 400, 'eye3');
-    var mouse3 = this.add.sprite(1000, 550, 'mouse3');
-    var mouth2 = this.add.sprite(1000, 700, 'mouth2');
-    var mouth1 = this.add.sprite(1000, 850, 'mouth1');
+    var background = this.add.sprite(500, 500, 'background');
+    var eye2 = this.add.sprite(1000, 100, 'eye2');
+    var eye3 = this.add.sprite(1000, 200, 'eye3');
+    var mouse3 = this.add.sprite(1000, 400, 'mouse3');
+    var mouth2 = this.add.sprite(1000, 600, 'mouth2');
+    var mouth1 = this.add.sprite(1000, 800, 'mouth1');
     var nose = this.add.sprite(1000, 1000, 'nose');
   
    background.setScale(3);
-    eye1.setScale(0.3);
     eye2.setScale(0.3);
     eye3.setScale(0.3);
     mouse3.setScale(0.3);
@@ -47,7 +45,6 @@ function create ()
     nose.setScale(0.3);
 
     background.setInteractive();
-    eye1.setInteractive();
     eye2.setInteractive();
     eye3.setInteractive();
     mouse3.setInteractive();
@@ -57,7 +54,6 @@ function create ()
     
 
     this.input.setDraggable(background);
-    this.input.setDraggable(eye1);
     this.input.setDraggable(eye2);
     this.input.setDraggable(eye3);
     this.input.setDraggable(mouse3);
