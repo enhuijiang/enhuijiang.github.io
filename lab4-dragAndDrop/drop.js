@@ -22,7 +22,7 @@ function create ()
 {
     var background = this.add.sprite(200, 200, 'background');
   
-    background.width = 100;background.height = 100;
+   sprite.setScale(5);
 
     background.setInteractive();
 
