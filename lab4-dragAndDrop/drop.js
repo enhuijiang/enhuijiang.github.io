@@ -15,16 +15,16 @@ var game = new Phaser.Game(config);
 
 function preload ()
 {
-    this.load.image('image','assets/images.png');
+    this.load.image('background','assets/images.png');
 }
 
 function create ()
 {
-    var image = this.add.sprite(200, 200, 'image');
+    var background = this.add.sprite(200, 200, 'background');
 
-    image.setInteractive();
+    background.setInteractive();
 
-    this.input.setDraggable(image);
+    this.input.setDraggable(background);
 
     this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
 
