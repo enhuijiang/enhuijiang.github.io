@@ -37,14 +37,14 @@ function create ()
     var mouth1 = this.add.sprite(600, 200, 'mouth1');
     var nose = this.add.sprite(620, 200, 'nose');
   
-   background.setScale(0.2);
-    background.setScale(0.2);
-    background.setScale(0.2);
-    background.setScale(0.2);
-    background.setScale(0.2);
-    background.setScale(0.2);
-    background.setScale(0.2);
-    background.setScale(0.2);
+   background.setScale(3);
+    eye1.setScale(0.2);
+    eye2.setScale(0.2);
+    eye3.setScale(0.2);
+    mouse3.setScale(0.2);
+    mouth2.setScale(0.2);
+    mouth1.setScale(0.2);
+    nose.setScale(0.2);
 
     background.setInteractive();
     eye1.setInteractive();
