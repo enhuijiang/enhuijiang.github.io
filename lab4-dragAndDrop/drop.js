@@ -29,22 +29,22 @@ function preload ()
 function create ()
 {
     var background = this.add.sprite(200, 200, 'background');
-    var eye1 = this.add.sprite(500, 200, 'eye1');
-    var eye2 = this.add.sprite(520, 200, 'eye2');
-    var eye3 = this.add.sprite(540, 200, 'eye3');
-    var mouse3 = this.add.sprite(560, 200, 'mouse3');
-    var mouth2 = this.add.sprite(580, 200, 'mouth2');
-    var mouth1 = this.add.sprite(600, 200, 'mouth1');
-    var nose = this.add.sprite(620, 200, 'nose');
+    var eye1 = this.add.sprite(1000, 200, 'eye1');
+    var eye2 = this.add.sprite(1020, 200, 'eye2');
+    var eye3 = this.add.sprite(1040, 200, 'eye3');
+    var mouse3 = this.add.sprite(1060, 200, 'mouse3');
+    var mouth2 = this.add.sprite(1080, 200, 'mouth2');
+    var mouth1 = this.add.sprite(1100, 200, 'mouth1');
+    var nose = this.add.sprite(1120, 200, 'nose');
   
-   background.setScale(4);
-    eye1.setScale(0.5);
-    eye2.setScale(0.5);
-    eye3.setScale(0.5);
-    mouse3.setScale(0.5);
-    mouth2.setScale(0.5);
-    mouth1.setScale(0.5);
-    nose.setScale(0.5);
+   background.setScale(3);
+    eye1.setScale(0.3);
+    eye2.setScale(0.3);
+    eye3.setScale(0.3);
+    mouse3.setScale(0.3);
+    mouth2.setScale(0.3);
+    mouth1.setScale(0.3);
+    nose.setScale(0.3);
 
     background.setInteractive();
     eye1.setInteractive();
