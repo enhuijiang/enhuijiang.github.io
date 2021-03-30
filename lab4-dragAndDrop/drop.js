@@ -21,7 +21,8 @@ function preload ()
 function create ()
 {
     var background = this.add.sprite(200, 200, 'background');
-    background.setScale(2);
+  
+    background.width = 100;background.height = 100;
 
     background.setInteractive();
 
