@@ -30,11 +30,11 @@ function create ()
 {
     var background = this.add.sprite(500, 400, 'background');
     var eye2 = this.add.sprite(1000, 100, 'eye2');
-    var eye3 = this.add.sprite(1000, 300, 'eye3');
-    var mouse3 = this.add.sprite(1000, 400, 'mouse3');
-    var mouth2 = this.add.sprite(1000, 480, 'mouth2');
-    var mouth1 = this.add.sprite(1000, 550, 'mouth1');
-    var nose = this.add.sprite(1000, 650, 'nose');
+    var eye3 = this.add.sprite(1000, 250, 'eye3');
+    var mouse3 = this.add.sprite(1000, 350, 'mouse3');
+    var mouth2 = this.add.sprite(1000, 430, 'mouth2');
+    var mouth1 = this.add.sprite(1000, 500, 'mouth1');
+    var nose = this.add.sprite(1000, 530, 'nose');
   
    background.setScale(3);
     eye2.setScale(0.3);
