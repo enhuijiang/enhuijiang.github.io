@@ -28,14 +28,14 @@ function preload ()
 
 function create ()
 {
-    var background = this.add.sprite(200, 200, 'background');
+    var background = this.add.sprite(800, 800, 'background');
     var eye1 = this.add.sprite(1000, 200, 'eye1');
-    var eye2 = this.add.sprite(1020, 200, 'eye2');
-    var eye3 = this.add.sprite(1040, 200, 'eye3');
-    var mouse3 = this.add.sprite(1060, 200, 'mouse3');
-    var mouth2 = this.add.sprite(1080, 200, 'mouth2');
-    var mouth1 = this.add.sprite(1100, 200, 'mouth1');
-    var nose = this.add.sprite(1120, 200, 'nose');
+    var eye2 = this.add.sprite(1050, 250, 'eye2');
+    var eye3 = this.add.sprite(1100, 300, 'eye3');
+    var mouse3 = this.add.sprite(1150, 350, 'mouse3');
+    var mouth2 = this.add.sprite(1200, 400, 'mouth2');
+    var mouth1 = this.add.sprite(1350, 450, 'mouth1');
+    var nose = this.add.sprite(1400, 500, 'nose');
   
    background.setScale(3);
     eye1.setScale(0.3);
