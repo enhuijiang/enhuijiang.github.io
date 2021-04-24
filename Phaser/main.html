@@ -38,7 +38,7 @@
         this.load.image('platform', 'images/platform.jpg');
         this.load.spritesheet('man','images/man.jpg',
         { frameWidth: 38, frameHeight: 87 }
-        ).setColorToAlpha(0, 0);
+        );
         
         
     
@@ -61,7 +61,7 @@
         platforms.create(750, 220, 'platform');
        
         
-        player = this.physics.add.sprite(100, 450, 'man');
+        player = this.physics.add.sprite(100, 450, 'man').setColorToAlpha(0, 0);
 
         player.setBounce(0.2);
         player.setCollideWorldBounds(true);
