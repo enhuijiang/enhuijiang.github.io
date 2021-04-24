@@ -64,7 +64,7 @@
         
         player = this.physics.add.sprite(100, 450, 'man');
 
-        player.setBounce(0.2);
+        player.setBounce(0.4);
         player.setCollideWorldBounds(true);
 
         this.anims.create({
@@ -76,7 +76,7 @@
 
         this.anims.create({
             key: 'turn',
-            frames: [ { key: 'man', frame: 8 } ],
+            frames: [ { key: 'man', frame: 4 } ],
             frameRate: 20
         });
 
