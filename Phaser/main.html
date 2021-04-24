@@ -19,7 +19,7 @@
         physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 400 },
+            gravity: { y: 300 },
             debug: false
             }
         },
@@ -71,12 +71,12 @@
         this.anims.create({
             key: 'turn',
             frames: [ { key: 'man', frame: 4 } ],
-            frameRate: 20
+            frameRate: 30
         });
         this.anims.create({
             key: 'left',
             frames: this.anims.generateFrameNumbers('man', { start: 0, end: 3 }),
-            frameRate: 10,
+            frameRate: 20,
             repeat: -1
         });
 
