@@ -92,20 +92,20 @@
         player.body.setGravityY(60);
         
         
-        candy = this.physics.add.group({
+        candies = this.physics.add.group({
             key: 'candy',
             repeat: 11,
             setXY: { x: 12, y: 0, stepX: 70 }
         });
         
 
-        candy.children.iterate(function (child) {
+        candies.children.iterate(function (child) {
 
             child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
        
         });
-        this.physics.add.collider(candy, platforms);
-        this.physics.add.overlap(player, candy, collectStar, null, this);
+        this.physics.add.collider(candies, platforms);
+        this.physics.add.overlap(player, candies, collectStar, null, this);
         
         var score = 0;
         var scoreText;
@@ -114,11 +114,11 @@
         
         
         
-        fire = this.physics.add.group();
+        fires = this.physics.add.group();
 
-        this.physics.add.collider(fire, platforms);
+        this.physics.add.collider(fires, platforms);
 
-        this.physics.add.collider(player, fire, hitBomb, null, this);
+        this.physics.add.collider(player, fires, hitBomb, null, this);
         
         function hitBomb (player, fire)
         {
@@ -139,9 +139,9 @@
             score += 10;
             scoreText.setText('Score: ' + score);
             
-            if (candy.countActive(true) === 0)
+            if (candies.countActive(true) === 0)
              {
-                candy.children.iterate(function (child) {
+                candies.children.iterate(function (child) {
 
                 child.enableBody(true, child.x, 0, true, true);
 
@@ -149,7 +149,7 @@
 
                 var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
-                var fire = fire.create(x, 16, 'fire');
+                var fire = fires.create(x, 16, 'fire');
                 fire.setBounce(1);
                 fire.setCollideWorldBounds(true);
                 fire.setVelocity(Phaser.Math.Between(-200, 200), 20);
