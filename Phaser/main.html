@@ -116,6 +116,16 @@
 
         this.physics.add.collider(fires, platforms);
         this.physics.add.collider(player, fires, hitFire, null, this);
+          function hitFire (player, fire)
+        {
+            this.physics.pause();
+
+            player.setTint(0xff0000);
+
+            player.anims.play('turn');
+
+            gameOver = true;
+        }
 
         
         function collectStar (player, candy)
@@ -141,24 +151,7 @@
                 fire.setVelocity(Phaser.Math.Between(-200, 200), 20);
 
              }
-        }
-        
-        
-        
-        
-        function hitFire (player, fire)
-        {
-            this.physics.pause();
-
-            player.setTint(0xff0000);
-
-            player.anims.play('turn');
-
-            gameOver = true;
-        }
-
-        
-        
+        }    
        
     }
 
