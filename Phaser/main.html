@@ -131,23 +131,7 @@
 
             gameOver = true;
         }
-    }
-        
-       function gameOver(){
-            this.isPlayerAlive=false;
-            
-            this.cameras.main.shake(500);
-            
-            this.time.delayedCall(250,function(){
-                this.cameras.main.fade(250);
-            },[],this);
-            
-            this.time.delayedCall(500,function(){
-                this.scene.restart();
-            },[],this);
-        }
-
-        
+    
         function collectStar (player, candy)
         {
             candy.disableBody(true, true);
@@ -178,6 +162,19 @@
         
        
     }
+        function gameOver(){
+            this.isPlayerAlive=false;
+            
+            this.cameras.main.shake(500);
+            
+            this.time.delayedCall(250,function(){
+                this.cameras.main.fade(250);
+            },[],this);
+            
+            this.time.delayedCall(500,function(){
+                this.scene.restart();
+            },[],this);
+        }
 
     function update ()
     {
