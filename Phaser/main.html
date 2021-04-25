@@ -100,19 +100,15 @@
 
         candy.children.iterate(function (child) {
 
-        child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-            
-        this.physics.add.collider(candy, platforms);
-            
-        this.physics.add.overlap(player, candy, collectStar, null, this);
-            
-        function collectStar (player, candy)
+            child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+       
+        });
+        this.physics.add.collider(stars, platforms);
+        this.physics.add.overlap(player, stars, collectStar, null, this);
+        function collectStar (player, star)
         {
-            candy.disableBody(true, true);
+            star.disableBody(true, true);
         }
-
-});
-        
     }
 
     function update ()
