@@ -43,6 +43,8 @@
         this.load.spritesheet('man','images/MAN.jpg',
         { frameWidth: 40, frameHeight: 87 }
         );
+        this.load.audio("ding", ["ding.mp3"]);
+        this.load.audio("lose", ["losing.mp3"]);
  
         
     
@@ -54,6 +56,15 @@
 
     function create ()
     {
+        
+        ding = this.sound.add("ding", { loop: false });
+        lose = this.sound.add("lose", { loop: false });
+        
+        
+        
+    
+
+        
         this.add.image(400, 300, 'sky');
   
         platforms = this.physics.add.staticGroup();
@@ -108,6 +119,11 @@
         this.physics.add.collider(candies, platforms);
         this.physics.add.overlap(player, candies, collectStar, null, this);
         
+        this.physics.add.collider(this.platforms, this.candies, function (platforms, candies) {
+        ding.play();
+        candies.destroy();
+        });    
+            
         var score = 0;
         var scoreText;
         
@@ -129,7 +145,7 @@
 
             player.anims.play('turn');
 
-            gameOver = function (){
+            this.gameOver = function (){
            
             this.isPlayerAlive=false;
             
@@ -142,6 +158,14 @@
             this.time.delayedCall(500,function(){
                 this.scene.restart();
             },[],this);
+        }
+             this.physics.add.collider(this.platforms, this.fires, function (platforms, fires) {
+        if (platforms.anims.getCurrentKey() != "lose") {
+            lose.play();
+            platforms.play("lose")
+            platforms.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+                platforms.destroy();
+            })
         }
             
             
