@@ -112,6 +112,12 @@
         
         scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px',fill: '#FFFFFF'});
         
+        fires = this.physics.add.group();
+
+        this.physics.add.collider(fires, platforms);
+        this.physics.add.collider(player, fires, hitFire, null, this);
+
+        
         function collectStar (player, candy)
         {
             candy.disableBody(true, true);
@@ -129,7 +135,7 @@
 
                 var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
-                var fire = fire.create(x, 16, 'bomb');
+                var fire = fires.create(x, 16, 'fire');
                 fire.setBounce(1);
                 fire.setCollideWorldBounds(true);
                 fire.setVelocity(Phaser.Math.Between(-200, 200), 20);
@@ -138,11 +144,8 @@
         }
         
         
-        fire = this.physics.add.group();
-
-        this.physics.add.collider(fire, platforms);
-
-        this.physics.add.collider(player, fire, hitFire, null, this);
+        
+        
         function hitFire (player, fire)
         {
             this.physics.pause();
