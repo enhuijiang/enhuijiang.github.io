@@ -68,7 +68,17 @@
         ding = this.sound.add("ding", { loop: false });
         lose = this.sound.add("lose", { loop: false });
     
-
+       var musicConfig={
+           mute:false,
+           volume:1,
+           rate:1,
+           detune:0,
+           seek:0,
+           loop:false,
+           delay:0      
+       }
+       this.ding.play(musicConfig);
+       this.lose.play(musicConfig);
         
         this.add.image(400, 300, 'sky');
   
@@ -142,6 +152,7 @@
         
         function hitBomb (player, fire)
         {
+            this.lose.play();
             this.physics.pause();
 
             player.setTint(0xff0000);
@@ -150,15 +161,7 @@
 
             this.gameOver = true;
            
-            this.physics.add.collider(this.player, this.fire, function (player, fire) {
-            if (player.anims.getCurrentKey() != "lose") {
-            lose.play();
-            player.play("explode")
-            player.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
-                player.destroy();
-            })
-        }
-    });
+           
        
        }
     
@@ -172,6 +175,7 @@
 
             score += 10;
             scoreText.setText('Score: ' + score);
+            this.ding.play();
             
             if (candies.countActive(true) === 0)
              {
@@ -189,12 +193,7 @@
                 fire.setVelocity(Phaser.Math.Between(-200, 200), 20);
 
              }
-            this.physics.add.collider(this.player, this.candies, function (player, candies) {
-               
-                ding.play();
-                candies.destroy();
-                resume();
-            });
+            
         }   
         
         this.isPlayerAlive=true;
