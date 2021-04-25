@@ -120,10 +120,7 @@
         this.physics.add.collider(candies, platforms);
         this.physics.add.overlap(player, candies, collectStar, null, this);
         
-        this.physics.add.collider(this.player, this.candies, function (player, candies) {
-        ding.play();
-        candies.destroy();
-        });
+        
           
             
         var score = 0;
@@ -188,6 +185,10 @@
                 fire.setVelocity(Phaser.Math.Between(-200, 200), 20);
 
              }
+            this.physics.add.collider(this.player, this.candies, function (player, candies) {
+                ding.play();
+                candies.destroy();
+            });
         }   
         
         this.isPlayerAlive=true;
