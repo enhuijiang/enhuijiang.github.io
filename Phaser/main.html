@@ -121,7 +121,7 @@
         this.physics.add.collider(candies, platforms);
         this.physics.add.overlap(player, candies, collectStar, null, this);
         
-        this.physics.add.collider(this.platforms, this.candies, function (platforms, candies) {
+        this.physics.add.collider(this.player, this.candies, function (player, candies) {
         resume();
         ding.play();
         candies.destroy();
@@ -163,12 +163,12 @@
             },[],this);
         }
        }
-    this.physics.add.collider(this.platforms, this.fires, function (platforms, fires) {
-        if (platforms.anims.getCurrentKey() != "lose") {
+    this.physics.add.collider(this.player, this.fires, function (player, fires) {
+        if (player.anims.getCurrentKey() != "lose") {
             lose.play();
-            platforms.play("lose")
-            platforms.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
-                platforms.destroy();
+            player.play("lose")
+            player.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+                player.destroy();
             })
         }
     })
