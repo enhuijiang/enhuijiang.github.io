@@ -90,12 +90,13 @@
         this.physics.add.collider(player, platforms);
         player.body.setGravityY(60);
         
-        this.physics.add.collider(candy, platforms);
+        
         stars = this.physics.add.group({
             key: 'candy',
             repeat: 11,
             setXY: { x: 12, y: 0, stepX: 70 }
         });
+        this.physics.add.collider(candy, platforms);
 
         candy.children.iterate(function (child) {
 
