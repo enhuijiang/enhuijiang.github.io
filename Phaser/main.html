@@ -56,7 +56,8 @@
     
     }
     var platforms;
-  
+    var ding;
+    var lose;
     
         
 
@@ -64,8 +65,8 @@
     {
         
        
-        ding = this.sound.add("ding", { loop: false });
-        lose = this.sound.add("lose", { loop: false });
+        ding = this.add.audio('ding');
+        lose = this.add.audio('lose');
     
 
         
