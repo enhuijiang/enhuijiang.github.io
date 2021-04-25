@@ -96,13 +96,13 @@
             repeat: 11,
             setXY: { x: 12, y: 0, stepX: 70 }
         });
-        this.physics.add.collider(candy, platforms);
+        
 
         candy.children.iterate(function (child) {
 
         child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
             
-        
+        this.physics.add.collider(candy, platforms);
             
         this.physics.add.overlap(player, candy, collectStar, null, this);
             
