@@ -61,7 +61,8 @@
     {
         
        
-        
+        ding = this.sound.add("ding", { loop: false });
+        lose = this.sound.add("lose", { loop: false });
     
 
         
@@ -119,6 +120,10 @@
         this.physics.add.collider(candies, platforms);
         this.physics.add.overlap(player, candies, collectStar, null, this);
         
+        this.physics.add.collider(this.player, this.candies, function (player, candies) {
+        ding.play();
+        candies.destroy();
+        });
           
             
         var score = 0;
@@ -142,20 +147,18 @@
 
             player.anims.play('turn');
 
-            this.gameOver = function (){
+            this.gameOver = true;
            
-            this.isPlayerAlive=false;
-            
-            this.cameras.main.shake(500);
-            
-            this.time.delayedCall(250,function(){
-                this.cameras.main.fade(250);
-            },[],this);
-            
-            this.time.delayedCall(500,function(){
-                this.scene.restart();
-            },[],this);
+            this.physics.add.collider(this.player, this.fire, function (player, fire) {
+            if (player.anims.getCurrentKey() != "lose") {
+            lose.play();
+            player.play("explode")
+            player.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
+                player.destroy();
+            })
         }
+    });
+       
        }
     
             
