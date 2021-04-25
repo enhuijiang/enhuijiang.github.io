@@ -121,6 +121,7 @@
         this.physics.add.overlap(player, candies, collectStar, null, this);
         
         this.physics.add.collider(this.platforms, this.candies, function (platforms, candies) {
+        resume();
         ding.play();
         candies.destroy();
         });    
