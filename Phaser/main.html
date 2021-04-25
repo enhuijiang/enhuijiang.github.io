@@ -152,8 +152,9 @@
         
         function hitBomb (player, fire)
         {
-            this.lose.muted = false;
+            
             this.lose.play();
+            this.lose.muted = false;
             this.physics.pause();
 
             player.setTint(0xff0000);
@@ -176,8 +177,9 @@
 
             score += 10;
             scoreText.setText('Score: ' + score);
-            this.ding.muted = false;
+            
             this.ding.play();
+            this.ding.muted = false;
             
             if (candies.countActive(true) === 0)
              {
@@ -212,7 +214,7 @@
        }
         if (this.gameOver){
             this.scene.stop();
-            this.scene.restart(game);
+            this.scene.restart(game.preload());
           
          }
         cursors = this.input.keyboard.createCursorKeys();
