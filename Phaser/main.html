@@ -38,6 +38,7 @@
         this.load.image('sky', 'images/background.jpg');
         this.load.image('platform', 'images/platform.jpg');
         this.load.image('candy', 'images/candy.jpg');
+        this.load.image('fire', 'images/fire.jpg');
         this.load.spritesheet('man','images/MAN.jpg',
         { frameWidth: 40, frameHeight: 87 }
         );
@@ -119,6 +120,23 @@
             scoreText.setText('Score: ' + score);
         }
         
+        
+        fire = this.physics.add.group();
+
+        this.physics.add.collider(fire, platforms);
+
+        this.physics.add.collider(player, fire, hitFire, null, this);
+        function hitFire (player, fire)
+        {
+            this.physics.pause();
+
+            player.setTint(0xff0000);
+
+            player.anims.play('turn');
+
+            gameOver = true;
+        }
+
         
         
        
