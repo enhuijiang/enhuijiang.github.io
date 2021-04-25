@@ -37,6 +37,7 @@
        
         this.load.image('sky', 'images/background.jpg');
         this.load.image('platform', 'images/platform.jpg');
+        this.load.image('candy', 'images/candy.jpg');
         this.load.spritesheet('man','images/MAN.jpg',
         { frameWidth: 40, frameHeight: 87 }
         );
@@ -90,22 +91,22 @@
         player.body.setGravityY(60);
         
         stars = this.physics.add.group({
-            key: 'star',
+            key: 'candy',
             repeat: 11,
             setXY: { x: 12, y: 0, stepX: 70 }
         });
 
-        stars.children.iterate(function (child) {
+        candy.children.iterate(function (child) {
 
         child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
             
-        this.physics.add.collider(stars, platforms);
+        this.physics.add.collider(candy, platforms);
             
-        this.physics.add.overlap(player, stars, collectStar, null, this);
+        this.physics.add.overlap(player, candy, collectStar, null, this);
             
-        function collectStar (player, star)
+        function collectStar (player, candy)
         {
-            star.disableBody(true, true);
+            candy.disableBody(true, true);
         }
 
 });
