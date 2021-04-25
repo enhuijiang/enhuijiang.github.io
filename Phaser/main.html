@@ -208,6 +208,10 @@
        if(!this.isPlayerAlive){
            return;
        }
+        if (this.gameOver){
+    this.scene.stop();
+    this.scene.launch();
+  }
         cursors = this.input.keyboard.createCursorKeys();
         if (cursors.left.isDown)
         {
