@@ -130,6 +130,13 @@
 
             gameOver = true;
         }
+        
+        gameScene.gameOver=function(){
+            this.cameras.main.shake(500);
+            this.time.delayedCall(500,function(){
+                this.scene.restart();
+            },[],this);
+        }
 
         
         function collectStar (player, candy)
