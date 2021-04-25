@@ -60,10 +60,7 @@
     function create ()
     {
         
-        ding = this.sound.add("ding", { loop: false });
-        lose = this.sound.add("lose", { loop: false });
-        
-        
+       
         
     
 
@@ -122,11 +119,7 @@
         this.physics.add.collider(candies, platforms);
         this.physics.add.overlap(player, candies, collectStar, null, this);
         
-        this.physics.add.collider(this.player, this.candies, function (player, candies) {
-        resume();
-        ding.play();
-        candies.destroy();
-        });    
+          
             
         var score = 0;
         var scoreText;
@@ -164,15 +157,7 @@
             },[],this);
         }
        }
-    this.physics.add.collider(this.player, this.fires, function (player, fires) {
-        if (player.anims.getCurrentKey() != "lose") {
-            lose.play();
-            player.play("lose")
-            player.once(Phaser.Animations.Events.SPRITE_ANIMATION_COMPLETE, () => {
-                player.destroy();
-            })
-        }
-    })
+    
             
             
         
