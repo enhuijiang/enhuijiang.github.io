@@ -152,6 +152,7 @@
         
         function hitBomb (player, fire)
         {
+            this.lose.muted = false;
             this.lose.play();
             this.physics.pause();
 
@@ -175,6 +176,7 @@
 
             score += 10;
             scoreText.setText('Score: ' + score);
+            this.ding.muted = false;
             this.ding.play();
             
             if (candies.countActive(true) === 0)
