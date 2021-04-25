@@ -159,6 +159,7 @@
                 this.scene.restart();
             },[],this);
         }
+       }
     this.physics.add.collider(this.platforms, this.fires, function (platforms, fires) {
         if (platforms.anims.getCurrentKey() != "lose") {
             lose.play();
