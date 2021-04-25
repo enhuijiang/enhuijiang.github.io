@@ -16,6 +16,8 @@
 
  
     <script>
+        
+    var gameScene = new Phaser.Scene("game");
     var config = {
         type: Phaser.AUTO,
         width: 800,
@@ -39,7 +41,7 @@
 
     var game = new Phaser.Game(config);
 
-    function preload ()
+    gameScene.preload=function ()
     {
        
         this.load.image('sky', 'images/background.jpg');
@@ -60,8 +62,8 @@
     var lose;
     
         
-
-    function create ()
+    gameScene.create=function ()
+    
     {
         
        
@@ -207,14 +209,15 @@
     }
         
 
-    function update ()
+    
+    gameScene.update=function()
     {
        if(!this.isPlayerAlive){
            return;
        }
         if (this.gameOver){
             this.scene.stop();
-            this.scene.restart(game.preload());
+            this.scene.restart();
           
          }
         cursors = this.input.keyboard.createCursorKeys();
