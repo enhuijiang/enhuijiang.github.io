@@ -65,8 +65,7 @@ class GameScene extends Phaser.Scene {
     constructor() {
 		super({key : 'gameScene'});
 	}
-    preload()
-    {
+    preload(){
        
         this.load.image('sky', 'images/background.jpg');
         this.load.image('platform', 'images/platform.jpg');
@@ -76,23 +75,18 @@ class GameScene extends Phaser.Scene {
         { frameWidth: 40, frameHeight: 87 }
         );
         this.load.audio("ding", ["ding.mp3"]);
-        this.load.audio("lose", ["losing.mp3"]);
- 
-        
-    
+        this.load.audio("lose", ["losing.mp3"]); 
     }
     
-    
-        
     create(){
-	    var platforms;
-    	    var ding;
-            var lose;
+	var platforms;
+	var ding;
+	var lose;
         
        
-        this.ding = this.sound.add("ding");
-        this.lose = this.sound.add("lose");
-    
+	this.ding = this.sound.add("ding");
+	this.lose = this.sound.add("lose");
+
        var musicConfig={
            mute:false,
            volume:1,
@@ -175,8 +169,7 @@ class GameScene extends Phaser.Scene {
 
         this.physics.add.collider(player, fires, hitBomb, null, this);
         
-        function hitBomb (player, fire)
-        {
+        function hitBomb (player, fire){
             
             this.lose.play();
             this.lose.muted = false;
@@ -187,17 +180,9 @@ class GameScene extends Phaser.Scene {
             player.anims.play('turn');
 
             this.gameOver = true;
-           
-           
-       
        }
-    
-            
-            
-        
-    
-        function collectStar (player, candy)
-        {
+
+        function collectStar (player, candy){
             candy.disableBody(true, true);
 
             score += 10;
@@ -206,12 +191,9 @@ class GameScene extends Phaser.Scene {
             this.ding.play();
             this.ding.muted = false;
             
-            if (candies.countActive(true) === 0)
-             {
+            if (candies.countActive(true) === 0){
                 candies.children.iterate(function (child) {
-
-                child.enableBody(true, child.x, 0, true, true);
-
+			child.enableBody(true, child.x, 0, true, true);
                 });
 
                 var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
@@ -220,7 +202,6 @@ class GameScene extends Phaser.Scene {
                 fire.setBounce(1);
                 fire.setCollideWorldBounds(true);
                 fire.setVelocity(Phaser.Math.Between(-200, 200), 20);
-
              }
             
         }   
@@ -230,6 +211,7 @@ class GameScene extends Phaser.Scene {
         
        
     }
+
         
 
     
@@ -271,7 +253,7 @@ class GameScene extends Phaser.Scene {
        
      
 
-    }
+    
     </script>
 
 </body>
