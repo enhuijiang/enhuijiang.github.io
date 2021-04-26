@@ -47,17 +47,43 @@
         this.load.spritesheet('man','images/MAN.jpg',
         { frameWidth: 40, frameHeight: 87 }
         );
+        this.load.audio("ding", ["ding.mp3"]);
+        this.load.audio("lose", ["losing.mp3"]);
+ 
+
  
         
     
     }
-    var platforms;
+   
   
     
         
 
     function create ()
     {
+        
+        var platforms;
+        var ding;
+        var lose;
+            
+           
+        this.ding = this.sound.add("ding");
+        this.lose = this.sound.add("lose");
+
+        var musicConfig={
+            mute:false,
+            volume:1,
+            rate:1,
+            detune:0,
+            seek:0,
+            loop:false,
+            delay:0      
+        }
+        this.ding.play(musicConfig);
+        this.lose.play(musicConfig);
+
+        
         this.add.image(400, 300, 'sky');
   
         platforms = this.physics.add.staticGroup();
@@ -127,6 +153,11 @@
         
         function hitBomb (player, fire)
         {
+            this.lose.play();
+            this.lose.muted = false;
+            this.physics.pause();
+
+
             this.physics.pause();
 
             player.setTint(0xff0000);
@@ -136,19 +167,7 @@
             gameOver = true;
         }
         
-        function gameOver(){
-            this.isPlayerAlive=false;
-            
-            this.cameras.main.shake(500);
-            
-            this.time.delayedCall(250,function(){
-                this.cameras.main.fade(250);
-            },[],this);
-            
-            this.time.delayedCall(500,function(){
-                this.scene.restart();
-            },[],this);
-        }
+        
 
         
         function collectStar (player, candy)
@@ -157,6 +176,10 @@
 
             score += 10;
             scoreText.setText('Score: ' + score);
+            
+            this.ding.play();
+            this.ding.muted = false;
+
             
             if (candies.countActive(true) === 0)
              {
@@ -176,17 +199,14 @@
              }
         }   
         
-        this.isPlayerAlive=true;
-        this.cameras.main.resetFX();
+       
         
        
     }
 
     function update ()
     {
-       if(!this.isPlayerAlive){
-           return;
-       }
+     
         cursors = this.input.keyboard.createCursorKeys();
         if (cursors.left.isDown)
         {
