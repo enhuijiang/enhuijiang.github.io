@@ -15,7 +15,7 @@
         audio: {
         disableWebAudio: true
         },
-        scene:[titleScene]
+        scene:[TitleScene]
       
     };
 
