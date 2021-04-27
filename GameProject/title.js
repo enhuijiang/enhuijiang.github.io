@@ -2,7 +2,7 @@ class TitleScene extends Phaser.Scene {
 
   
         constructor(){
-           super({key:'titleScene'});
+           super({key:'TitleScene'});
         }
         preload() {
              this.load.image('backgroundTitle', 'images/backgroundTitle.jpg');
