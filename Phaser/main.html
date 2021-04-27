@@ -248,6 +248,13 @@
         {
             player.setVelocityY(-330);
         }
+        
+        var rule;
+        var help = scene.input.keyboard.addKey('H'); 
+        help.onkeypress= function(){
+            
+            rule = this.add.text(200, 200, 'Rule: player only have 3 lifies. if you touch the fire, you will lose one life. if you touch the fire 3times.game over.( press any keyboard button to exit ) ', { fontSize: '32px',fill: '#FFFFFF', background-color: #9966ff});
+        }
 
     }
     </script>
