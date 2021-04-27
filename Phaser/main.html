@@ -86,6 +86,7 @@
             delay:0      
         }
         this.ding.play(musicConfig);
+        this.hitFire.play(musicConfig);
         this.lose.play(musicConfig);
 
         
@@ -172,7 +173,7 @@
                 player.setTint(0xff0000);
 
                 player.anims.play('turn');
-                player.destroy();
+              
                 gameOver = true;
             }
             
@@ -251,8 +252,7 @@
         {
             player.setVelocityY(-330);
         }
-      
-       
+
     }
     </script>
 
