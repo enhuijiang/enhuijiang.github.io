@@ -64,6 +64,18 @@
     function create ()
     {
         
+        this.input.keyboard.on('keydown_W', this.yourFunction, this);
+        yourFunction(event) {
+    // Here you can see what's passed when Phaser triggers it.
+    console.log(arguments);
+
+    if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.H) {
+        console.log('S was pressed');
+    } else if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.N) {
+        this.scene.restart();
+    }
+}
+        
         var platforms;
         var ding;
         var lose;
@@ -253,11 +265,7 @@
             player.setVelocityY(-330);
         }
         
-        var menue;
-         if (game.input.keyboard.isDown(Phaser.Keyboard.H))
-         {
-             menue=this.add.text(200,200 'Rule:', { fontSize: '32px',fill: '#FFFFFF'});
-         }
+      
 
     }
     </script>
