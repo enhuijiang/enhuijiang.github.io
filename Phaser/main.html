@@ -67,7 +67,7 @@
         var platforms;
         var ding;
         var lose;
-            
+        
         
         this.keys.keyH = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.H);
        
@@ -173,6 +173,7 @@
                 player.setTint(0xff0000);
 
                 player.anims.play('turn');
+                player.destroy();
                 gameOver = true;
             }
             
@@ -251,11 +252,7 @@
         {
             player.setVelocityY(-330);
         }
-        
-        if (Phaser.Input.Keyboard.JustDown(this.keys.keyH)) {
-            rule = this.add.text(200, 200, 'Rule: player only have 3 lifies. if you touch the fire, you will lose one life. if you touch the fire 3times.game over.( press any keyboard button to exit ) ', { fontSize: '32px',fill: '#FFFFFF', backgroundcolor: '#9966ff'});
-            rule.backgroundColor = "#9966ff";
-        }
+      
        
     }
     </script>
