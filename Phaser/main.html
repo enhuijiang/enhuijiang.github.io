@@ -161,7 +161,7 @@
         
         function hitBomb (player, fire)
         {
-            count--;
+            count=count-1;
             lifeCount.setText('life:'+ count);
             if(count==0){
                 this.lose.play();
