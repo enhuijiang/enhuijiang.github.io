@@ -48,6 +48,7 @@
         { frameWidth: 40, frameHeight: 87 }
         );
         this.load.audio("ding", ["ding.mp3"]);
+        this.load.audio("hitFire", ["hitFire.mp3"]);
         this.load.audio("lose", ["losing.mp3"]);
  
 
@@ -69,7 +70,9 @@
             
            
         this.ding = this.sound.add("ding");
+        this.hitFire = this.sound.add("hitFire");
         this.lose = this.sound.add("lose");
+        
 
         var musicConfig={
             mute:false,
@@ -161,6 +164,8 @@
             count--;
             lifeCount.setText('life:'+ count);
             if(count==0){
+                this.lose.play();
+                this.lose.muted = false;
                 this.physics.pause();
                 player.setTint(0xff0000);
 
@@ -168,8 +173,9 @@
                 gameOver = true;
             }
             
-            this.lose.play();
-            this.lose.muted = false;
+         
+            this.hitFire.play();
+            this.hitFire.muted = false;
             
 
 
