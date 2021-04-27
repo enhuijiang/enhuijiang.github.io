@@ -68,6 +68,9 @@
         var ding;
         var lose;
             
+        
+        var rule;
+        help = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.H);
            
         this.ding = this.sound.add("ding");
         this.hitFire = this.sound.add("hitFire");
@@ -249,8 +252,7 @@
             player.setVelocityY(-330);
         }
         
-        var rule;
-        var help = scene.input.keyboard.addKey('H'); 
+        
         help.onkeypress= function(){
             
             
