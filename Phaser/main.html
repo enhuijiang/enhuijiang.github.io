@@ -141,8 +141,12 @@
         
         var score = 0;
         var scoreText;
+        var count=3;
+        var lifeCount;
+        
         
         scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px',fill: '#FFFFFF'});
+        lifeCount=this.add.text(16, 16, 'life:3',{ fontSize: '32px',fill: '#FFFFFF'});
         
         
         
@@ -154,18 +158,25 @@
         
         function hitBomb (player, fire)
         {
+            count--;
+            lifeCount.setText('life:'+ count);
+            if(count==0){
+                this.physics.pause();
+                player.setTint(0xff0000);
+
+                player.anims.play('turn');
+                gameOver = true;
+            }
+            
             this.lose.play();
             this.lose.muted = false;
-            this.physics.pause();
+            
 
 
-            this.physics.pause();
+            
 
-            player.setTint(0xff0000);
 
-            player.anims.play('turn');
-
-            gameOver = true;
+           
         }
         
         
