@@ -158,6 +158,8 @@
         var count=3;
         var lifeCount;
         
+        var gameOverT;
+        
         
         scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px',fill: '#FFFFFF'});
         lifeCount=this.add.text(600, 16, 'life:3',{ fontSize: '32px',fill: '#FFFFFF'});
@@ -184,11 +186,12 @@
               
                 gameOver = true;
                 if(gameOver){
-            showText("You died\nPress N to restart");
-            if(wasd.restart.isDown){
-                this.scene.restart();
-                gameOver = false;
-            }
+                    gameOverT=this.add.text(200, 200, 'You died\nPress N to restart', { fontSize: '32px',fill: '#FFFFFF'});
+           
+                    if(wasd.restart.isDown){
+                        this.scene.restart();
+                        gameOver = false;
+                    }
         }
 
             }
