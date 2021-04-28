@@ -64,7 +64,12 @@
     function create ()
     {
         
-       
+       wasd = this.input.keyboard.addKeys({
+            
+            restart: Phaser.Input.Keyboard.KeyCodes.N,
+           
+        });
+
        
         
         var platforms;
@@ -257,10 +262,12 @@
         }
         
         
-         if (cursors.keyCode === Phaser.Input.Keyboard.KeyCodes.H) {
-            console.log('S was pressed');
-        } else if ( cursors.keyCode === Phaser.Input.Keyboard.KeyCodes.N) {
-            this.scene.restart();
+         if(gameOver){
+            showText("You died\nPress N to restart");
+            if(wasd.restart.isDown){
+                this.scene.restart();
+                gameOver = false;
+            }
         }
 
     }
