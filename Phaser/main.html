@@ -1,45 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="">
 <head>
     <meta charset="UTF-8">
     <mata name="viewport" >
     <title>Phaser </title>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+    
+    
+   <script type="text/javascript"  src="phaser.js"></script>
+
    
 
-
 </head>
-<body>
-  <nav>
+<body>   
+    <nav>
         <a href="../assignment.html">Assignment</a> 
     </nav>
-    <script>
-    var config = {
-        type: Phaser.AUTO,
-        width: 800,
-        height: 600,
-        physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: { y: 300 },
-            debug: false
-            }
-        },
-        audio: {
-        disableWebAudio: true
-        },
+     <script>
+     
 
-        scene:{
+         
+        var config = {
+            type: Phaser.AUTO,
+            width: 800,
+            height: 600,
+            physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 300 },
+                debug: false
+                }
+            },
+            audio: {
+            disableWebAudio: true
+            },
+            scene:{
             preload: preload,
             create: create,
             update: update
         }
-    };
+
+            
+
+        };
+
 
     var game = new Phaser.Game(config);
+       
+         
+         
+         
 
-    function preload ()
-    {
+   function preload (){
        
         this.load.image('sky', 'images/background.jpg');
         this.load.image('platform', 'images/platform.jpg');
@@ -49,7 +60,7 @@
         { frameWidth: 40, frameHeight: 87 }
         );
         this.load.audio("ding", ["ding.mp3"]);
-        this.load.audio("hitFire", ["hitFire.mp3"]);
+       this.load.audio("hitFire", ["hitFire.mp3"]);
         this.load.audio("lose", ["losing.mp3"]);
  
 
@@ -60,26 +71,19 @@
    
   
     
-    
+        
 
-    function create ()
-    {
-        
-      
-        
-       
+    function create (){
         
         var platforms;
         var ding;
         var lose;
-        
-      
-       
+        var hitFire;
+            
            
         this.ding = this.sound.add("ding");
         this.hitFire = this.sound.add("hitFire");
         this.lose = this.sound.add("lose");
-        
 
         var musicConfig={
             mute:false,
@@ -152,11 +156,9 @@
         
         var score = 0;
         var scoreText;
+        
         var count=3;
         var lifeCount;
-        
-        var gameOverT;
-        
         
         scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px',fill: '#FFFFFF'});
         lifeCount=this.add.text(600, 16, 'life:3',{ fontSize: '32px',fill: '#FFFFFF'});
@@ -171,40 +173,27 @@
         
         function hitBomb (player, fire)
         {
+            this.hitFire.play();
+            this.hitFire.muted = false;
+            count=count-1;
+            lifeCount.setText('life:'+ count);
             
-            if(count!=0){
-                
-                this.hitFire.play();
-                this.hitFire.muted = false;
-    
-                count=count-1;
-                lifeCount.setText('life:'+ count);
-           
+            if(count===0){
+            this.lose.play();
+            this.lose.muted = false;
+            this.physics.pause();
 
-                gameOver = false;
-                
 
-            }else{
-           
-                this.lose.play();
-                this.lose.muted = false;
-               
-                this.physics.pause();
+            this.physics.pause();
 
-                player.setTint(0xff0000);
+            player.setTint(0xff0000);
 
-                player.anims.play('turn');
+            player.anims.play('turn');
 
-                gameOver = true;
-            
-            
+            gameOver = true;
             }
-
-            
-
-
-           
         }
+        
         
         
 
@@ -269,15 +258,13 @@
         {
             player.setVelocityY(-330);
         }
-        
-       
-        
-              
-            
-        
-         
+
     }
-    </script>
+    
+
+
+   </script>
 
 </body>
 </html>
+    
