@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <mata name="viewport" >
+    <title>Phaser </title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+   
+
+
+</head>
+<body>
+
+    
+    <script>
+        
+        
+    var config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 300 },
+            debug: false
+            }
+        },
+        audio: {
+        disableWebAudio: true
+        },
+        scene:{
+            preload: preload,
+            create: create,
+            update: update
+        }
+    };
+
+      var game = new Phaser.Game(config);
+
+      function preload (){
+          this.load.image('backgroundTitle', 'images/backgroundTitle.jpg');
+          this.load.image('buttonPlay', 'images/button.jpg');
+      }
+       
+    
+        
+        function create (){
+            this.add.image(400, 300, 'backgroundTitle');
+            var title,rule;
+            title=this.add.text(16, 16, 'Name: Enhui Jiang',{
+        fontSize: '30px', fontFamily: 'Arial',color: '#ffffff'});
+            title=this.add.text(16, 50, 'Game Project:(Phaser 3)',{
+        fontSize: '30px', fontFamily: 'Arial',color: '#ffffff'});
+            
+            rule=this.add.text(160, 100, 'Game Rule: player only have 3 life. ', {
+        fontSize: '30px', fontFamily: 'Arial',color: '#ffffff'});
+          
+            rule=this.add.text(80, 130, 'player needs to eat as many as candy as they can.', {
+        fontSize: '30px', fontFamily: 'Arial',color: '#ffffff',align: "center"});
+      
+            rule=this.add.text(75, 160, 'player needs to avoid fire while eats candy. If player',{
+        fontSize: '30px', fontFamily: 'Arial',color: '#ffffff', align: 'center', });
+            
+            rule=this.add.text(75, 190, 'touches fire 3 times, Game Over.',{
+        fontSize: '30px', fontFamily: 'Arial',color: '#ffffff', align: 'center', });
+            
+            
+            this.add.image(400, 300, 'buttonPlay');
+
+            
+        }
+        
+        function update (){
+            
+        }
+        
+        
+    
+    </script>
+
+</body>
+</html>
