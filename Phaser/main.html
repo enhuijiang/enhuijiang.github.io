@@ -176,7 +176,7 @@
             if(count===0){
                 
                 this.lose.play();
-                
+                this.lose.muted = false;
                 this.physics.pause();
                 player.setTint(0xff0000);
 
@@ -186,12 +186,7 @@
                 
 
             }
-            
-            if(gameOver){
-                    gameOverT=this.add.text(300, 300, 'Game Over\nPress N to restart', { fontSize: '32px',fill: '#FFFFFF'});
-                    gameOverT.backgroundcolor='#9966ff';
-                    
-             }
+           
          
             this.hitFire.play();
             this.hitFire.muted = false;
