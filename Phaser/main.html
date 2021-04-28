@@ -186,8 +186,8 @@
               
                 gameOver = true;
                 if(gameOver){
-                    gameOverT=this.add.text(300, 300, 'Game Over\nPress N to restart', { fontSize: '32px',fill: '#FFFFFF',backgroundcolor:'#9966ff'});
-           
+                    gameOverT=this.add.text(300, 300, 'Game Over\nPress N to restart', { fontSize: '32px',fill: '#FFFFFF'});
+                    gameOverT.backgroundcolor='#9966ff';
                     if(wasd.restart.isDown){
                         this.scene.restart();
                         gameOver = false;
