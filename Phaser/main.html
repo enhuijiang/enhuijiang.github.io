@@ -257,10 +257,11 @@
         }
         
         
-        if (cursors.H.isDown){
+         if (cursors.keyCode === Phaser.Input.Keyboard.KeyCodes.H) {
+            console.log('S was pressed');
+        } else if ( cursors.keyCode === Phaser.Input.Keyboard.KeyCodes.N) {
             this.scene.restart();
         }
-      
 
     }
     </script>
