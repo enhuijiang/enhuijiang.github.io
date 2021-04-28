@@ -183,6 +183,14 @@
                 player.anims.play('turn');
               
                 gameOver = true;
+                if(gameOver){
+            showText("You died\nPress N to restart");
+            if(wasd.restart.isDown){
+                this.scene.restart();
+                gameOver = false;
+            }
+        }
+
             }
             
          
@@ -262,14 +270,7 @@
         }
         
         
-         if(gameOver){
-            showText("You died\nPress N to restart");
-            if(wasd.restart.isDown){
-                this.scene.restart();
-                gameOver = false;
-            }
-        }
-
+         
     }
     </script>
 
