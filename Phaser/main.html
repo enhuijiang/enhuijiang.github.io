@@ -66,8 +66,8 @@
         
       
         
-        var keyN=Phaser.Input.Keyboard.Key;
-        keyN = this.scene.input.keyboard.addKey('N');
+        var keyN=Phaser.Input.Keyboard.addKey('N');;
+        
         keyN.onkeypress= function(){ this.scene.restart();};
         
         var platforms;
