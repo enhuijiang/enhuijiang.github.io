@@ -64,7 +64,7 @@
     function create ()
     {
         
-        this.input.keyboard.on('keydown_W', cursors, this);
+       
        
         
         var platforms;
@@ -256,6 +256,7 @@
             player.setVelocityY(-330);
         }
         
+         this.input.keyboard.on('keydown_H', cursors, this);
  
         if (cursors.keyCode === Phaser.Input.Keyboard.KeyCodes.H) {
             console.log('S was pressed');
