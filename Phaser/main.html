@@ -59,21 +59,12 @@
    
   
     
-    yourFunction(event) {
-    // Here you can see what's passed when Phaser triggers it.
-        console.log(arguments);
-
-        if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.H) {
-            console.log('S was pressed');
-        } else if (event.keyCode === Phaser.Input.Keyboard.KeyCodes.N) {
-            this.scene.restart();
-        }
-     }
+    
 
     function create ()
     {
         
-        this.input.keyboard.on('keydown_W', this.yourFunction, this);
+        this.input.keyboard.on('keydown_W', cursors, this);
        
         
         var platforms;
@@ -265,7 +256,13 @@
             player.setVelocityY(-330);
         }
         
-      
+ 
+        if (cursors.keyCode === Phaser.Input.Keyboard.KeyCodes.H) {
+            console.log('S was pressed');
+        } else if ( cursors.keyCode === Phaser.Input.Keyboard.KeyCodes.N) {
+            this.scene.restart();
+        }
+     
 
     }
     </script>
