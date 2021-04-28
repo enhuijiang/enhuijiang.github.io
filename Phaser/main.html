@@ -178,20 +178,20 @@
                 this.lose.play();
                 this.lose.muted = false;
                 this.physics.pause();
-                player.setTint(0xff0000);
-
-                player.anims.play('turn');
+                
               
                 gameOver = true;
                 
 
             }else{
-                
+                player.setTint(0xff0000);
+
+                player.anims.play('turn');
            
          
             this.hitFire.play();
             this.hitFire.muted = false;
-                count=3;
+            this.count=3;
             
             }
 
