@@ -26,7 +26,7 @@
 
     
         
-        <button type="button" id="startButton">Speak</button>
+         <button class="button" type="button" id="startButton">Speak</button>
         
             
     
@@ -69,7 +69,21 @@
             recognition.grammars= SpeechGrammarList;
        
 
-          
+          startBtn.addEventListener("click",update);
+
+            function update(){
+                if (startBtn.textContent === "Speak") {
+                    startBtn.textContent = "Stop";
+                    recognition.abort();
+                    
+                    
+                
+                } else {
+                    startBtn.textContent = "Speak";
+                    recognition.start();
+                    
+                }
+            }
 
 
 
