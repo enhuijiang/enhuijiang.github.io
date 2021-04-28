@@ -171,12 +171,23 @@
         
         function hitBomb (player, fire)
         {
-            count=count-1;
-            lifeCount.setText('life:'+ count);
-            if(count==0){
+            
+            if(count!=0){
                 
+                this.hitFire.play();
+                this.hitFire.muted = false;
+    
+                count=count-1;
+                lifeCount.setText('life:'+ count);
+           
+
+                gameOver = false;
+                
+
+            }else{
+           
                 this.lose.play();
-                this.lose.muted = true;
+                this.lose.muted = false;
                
                 this.physics.pause();
 
@@ -185,16 +196,7 @@
                 player.anims.play('turn');
 
                 gameOver = true;
-               
-
-                
-
-            }else{
-           
-         
-            this.hitFire.play();
-            this.hitFire.muted = false;
-
+            
             
             }
 
